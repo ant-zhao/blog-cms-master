@@ -1,21 +1,23 @@
 <template>
   <el-container class="main-layout">
     <el-aside class="main-layout-nav" :width="nav.width">
-      <div class="logo"><h1>{{nav.collapsed ? 'Jay' : 'Jay Blog'}}</h1></div>
+      <div class="logo"><h1>{{nav.collapsed ? '青' : 'youthUp Blog'}}</h1></div>
       <el-menu :collapse="nav.collapsed" :default-active="defaultPath"
         unique-opened router class="menu">
-       <template v-for="(item, index) in navList" v-if="!item.hidden">
-          <el-menu-item v-if="item.children.length == 1" :index="item.children[0].path" :key="index">
+       <template v-for="(item, index) in navList">
+          <template v-if="!item.hidden">
+            <el-menu-item v-if="item.children.length == 1" :index="item.children[0].path" :key="index">
             <i :class="item.icon" /> <span slot="title">{{ item.title }}</span>
           </el-menu-item>
           <el-submenu v-else :key="item.path"  :index="item.path">
             <template slot="title">
               <i :class="item.icon" /> <span slot="title">{{ item.title }}</span>
             </template>
-            <template v-for="child in item.children"> 
+            <template v-for="child in item.children">
               <el-menu-item v-if="!child.hidden" :key="child.path" :index="child.path">{{ child.title }}</el-menu-item>
             </template>
           </el-submenu>
+          </template>
         </template>
       </el-menu>
     </el-aside>
@@ -33,7 +35,7 @@
           </el-col>
         </el-row>
       </el-header>
-     
+
       <main class="main-layout-content">
         <aside class="nav-link" >
           <el-breadcrumb separator-class="el-icon-arrow-right">
