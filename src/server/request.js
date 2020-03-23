@@ -1,8 +1,10 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
 import Router from '@/router'
+import baseUrl from "./apiConfig";
 
 const service = axios.create({
+    baseURL: baseUrl,
     headers:{
         'Content-Type': 'application/json',
         'X-Requested-With': 'XMLHttpRequest',

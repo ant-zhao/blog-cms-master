@@ -1,12 +1,11 @@
-import { hostUrl } from '@/server/apiConfig'
 
 const CommonMixins = {
     computed: {
         $uploadUrl() {
-            return `${hostUrl}/api/upFiles`
+            return `/api/upFiles`
         },
         $uploadMp3Url() {
-            return `${hostUrl}/api/upFilesMP3`
+            return `/api/upFilesMP3`
         }
 
     }
